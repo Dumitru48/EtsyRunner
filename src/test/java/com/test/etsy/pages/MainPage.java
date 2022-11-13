@@ -1,0 +1,24 @@
+package com.test.etsy.pages;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import utils.BrowserUtils;
+import utils.ConfigReader;
+import utils.DriverHelper;
+
+public class MainPage {
+public MainPage(WebDriver driver){
+    PageFactory.initElements(driver, this);
+}
+@FindBy(css="#global-enhancements-search-query")
+    WebElement searchBox;
+public void search(String word){
+    searchBox.sendKeys(word, Keys.ENTER);
+}
+}
